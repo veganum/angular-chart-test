@@ -1,0 +1,54 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+//? IMPORTACIONES
+@import "./typography";
+@import "./palette";
+
+//? TEMAS Y CONFIGURACION
+//* Light mode
+$angular-material-test-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $angular-material-test-primary,
+      accent: $angular-material-test-accent,
+      warn: $angular-material-test-warn,
+    ),
+    typography: $angular-material-typography-montserrat,
+    density: 0,
+  )
+);
+//* Dark mode
+$angular-material-test-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $angular-material-test-dark-primary,
+      accent: $angular-material-test-dark-accent,
+      warn: $angular-material-test-warn,
+    ),
+    typography: $angular-material-typography-montserrat,
+    density: 0,
+  )
+);
+
+@include mat.all-component-themes($angular-material-test-theme);
+html,
+body {
+  background-color: white;
+}
+
+.dark-theme {
+  @include mat.all-component-themes($angular-material-test-dark-theme);
+  html,
+  body {
+    background-color: black;
+    height: 100%;
+  }
+
+  mat-grid-tile {
+    // background: lightblue;
+    border: 1px solid  orangered !important;
+  }
+
+}

@@ -1,0 +1,136 @@
+//? EXPORTACION GLOBAL DE  COLORES(Accesibles en toda la aplicacion)
+:root {
+  --color-primary-a20: #94b5c9;
+  --color-primary-a50: #286a93;
+  --color-primary-a70: #1e5780;
+
+  --color-primary-dark-a20: #FF5722;
+  --color-primary-dark-a50: #E64A19;
+  --color-primary-dark-a70: #D84315;
+
+
+  --color-accent-a20: #8babbe;
+  --color-accent-a50: #17567d;
+  --color-accent-a70: #11456a;
+
+  --color-accent-dark-a20: #FFC107;
+  --color-accent-dark-a50: #FFA000;
+  --color-accent-dark-a70: #FF8F00;
+
+
+  --color-warn-a20: #ee9d8e;
+  --color-warn-a50: #dc3a1d;
+  --color-warn-a70: #d32c15;
+
+  --color-warn-dark-a20: #CDDC39;
+  --color-warn-dark-a50: #AFB42B;
+  --color-warn-dark-a70: #AFB42B5;
+
+
+  --color-white: #fff;
+  --color-black: #000;
+}
+
+//? Light
+$my-primary-color: (
+  200: var(--color-primary-a20),
+  500: var(--color-primary-a50),
+  700: var(--color-primary-a70),
+  contrast: (
+    200: var(--color-black),
+    500: var(--color-white),
+    700: var(--color-white),
+  ),
+);
+$my-accent-color: (
+  200: var(--color-accent-a20),
+  500: var(--color-accent-a50),
+  700: var(--color-accent-a70),
+  contrast: (
+    200: var(--color-black),
+    500: var(--color-white),
+    700: var(--color-white),
+  ),
+);
+$my-warn-color: (
+  200: var(--color-warn-a20),
+  500: var(--color-warn-a50),
+  700: var(--color-warn-a70),
+  contrast: (
+    200: var(--color-black),
+    500: var(--color-white),
+    700: var(--color-white),
+  ),
+);
+//? Dark
+$my-primary-color-dark: (
+  200: var(--color-primary-dark-a20),
+  500: var(--color-primary-dark-a50),
+  700: var(--color-primary-dark-a70),
+  contrast: (
+    200: var(--color-black),
+    500: var(--color-white),
+    700: var(--color-white),
+  ),
+);
+$my-accent-color-dark: (
+  200: var(--color-accent-dark-a20),
+  500: var(--color-accent-dark-a50),
+  700: var(--color-accent-dark-a70),
+  contrast: (
+    200: var(--color-black),
+    500: var(--color-white),
+    700: var(--color-white),
+  ),
+);
+$my-warn-color-dark: (
+  200: var(--color-warn-dark-a20),
+  500: var(--color-warn-dark-a50),
+  700: var(--color-warn-dark-a70),
+  contrast: (
+    200: var(--color-black),
+    500: var(--color-white),
+    700: var(--color-white),
+  ),
+);
+
+//? IMPORTACION DE COLORES PARA EL TEMA (Se inserta la paleta y los coloeres que quieres)
+//* Light mode
+$angular-material-test-primary: mat.define-palette(
+  $my-primary-color,
+  200,
+  500,
+  700
+);
+$angular-material-test-accent: mat.define-palette(
+  $my-accent-color,
+  200,
+  500,
+  700
+);
+$angular-material-test-warn: mat.define-palette(
+  $my-warn-color-dark,
+  200,
+  500,
+  700
+);
+
+//* Dark mode
+$angular-material-test-dark-primary: mat.define-palette(
+  $my-primary-color-dark,
+  200,
+  500,
+  700
+);
+$angular-material-test-dark-accent: mat.define-palette(
+  $my-accent-color,
+  200,
+  500,
+  700
+);
+$angular-material-test-dark-warn: mat.define-palette(
+  $my-warn-color-dark,
+  200,
+  500,
+  700
+);
