@@ -16,9 +16,6 @@ export class AppComponent {
   breakpoint: number | undefined;
 
   public theme: string = '';
-  // https://www.chartjs.org/docs/latest/
-  // https://blog.bitsrc.io/how-to-create-charts-in-angular-with-dynamic-data-using-chart-js-45b9add7715e
-  // https://www.freecodecamp.org/news/how-to-make-pie-and-doughnut-charts-using-chartjs-in-angular/
 
   //? Bar
   myChartBar: any;
@@ -58,11 +55,20 @@ export class AppComponent {
   public selectDarkTheme(): void {
     this.document.documentElement.classList.add(this.DARK_THEME_CLASS);
     this.theme = this.DARK_THEME_DARK;
+
+    this.myChartLines.options.scales.x.grid.color = '#8a2be2';
+    this.myChartLines.options.scales.y.grid.color = '#8a2be2';
+
+    this.myChartLines.update();
   }
 
   public selectLightTheme(): void {
     this.document.documentElement.classList.remove(this.DARK_THEME_CLASS);
     this.theme = this.DARK_THEME_LIGHT;
+
+    this.myChartLines.options.scales.x.grid.color = '#eeeeee';
+    this.myChartLines.options.scales.y.grid.color = '#eeeeee';
+    this.myChartLines.update();
   }
 
   onResize(event: any) {
@@ -288,7 +294,7 @@ export class AppComponent {
       },
     });
 
-    //? Radar
+    //? Line
     this.myChartLines = new Chart('lineCtx', {
       type: 'line',
       data: {
@@ -324,12 +330,12 @@ export class AppComponent {
           y: {
             beginAtZero: true,
             grid: {
-              color: this.theme === 'dark' ? '#FFCF96' : '#dcdcdc',
+              color: ' #eeeeee',
             },
           },
           x: {
             grid: {
-              color: this.theme === 'dark' ? '#FFCF96' : '#dcdcdc',
+              color: ' #eeeeee',
             },
           },
         },
@@ -394,7 +400,7 @@ export class AppComponent {
     );
 
     this.myChartLines.data.datasets[0].data = this.dataChartLines;
-    this.myChartLines.data.datasets[0].data = this.dataChartLines;
+    this.myChartLines.data.datasets[1].data = this.dataChartLines2;
     // Update and redraw the chart
     this.myChartLines.update();
   }
